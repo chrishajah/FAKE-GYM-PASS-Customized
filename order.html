@@ -272,6 +272,9 @@
     </style>
 </head>
 
+</style>
+</head>
+
 <body style="margin: 0; background-color: #f6f6f6;">
     <div id="order-page">
         <div class="toolbar">
@@ -288,7 +291,7 @@
             <h3>地点：中大体育部</h3>
             <div class="order-status">
                 <div style="color: #EB5A5A;">完成</div>
-                <div style="color: #999999;" id="ordertime">2024-05-25 12:00:28</div>
+                <div style="color: #999999;" id="ordertime">2024-11-25 12:23:28</div>
             </div>
             <div class="order-status" style="justify-content: flex-end; padding-bottom: 1rem;">
                 <div style="color: #EB5A5A;">
@@ -304,7 +307,7 @@
             <div style="margin-top: 0; padding: 1rem;">
                 <div style="padding-bottom: 1rem; border-bottom: 1px dashed #d9d9d9;">
                     <div name="bookplace">???</div>
-                    <div name="booktime">2024-05-25&nbsp;&nbsp;19:01-20:00 &nbsp;&nbsp;</div>
+                    <div name="booktime">2024-11-25&nbsp;&nbsp;19:01-20:00 &nbsp;&nbsp;</div>
                 </div>
                 <div style="padding: 0; padding-top: .625rem; justify-content: flex-end;">
                     <span style="color: grey; padding-right: .75rem; font-size: .85rem; margin: 0;">订单金额</span>
@@ -315,7 +318,7 @@
             </div>
             <div style="margin-bottom: 2.5rem; padding: .625rem 0; padding-left: .75rem;">
                 <div onclick="show()">
-                    <div style="font-size: .85rem; color: #555; ">验证码 4704132314092608</div>
+                    <div style="font-size: .85rem; color: #555;" id="captcha">验证码：生成中...</div>
                     <div>
                         <img src="./assets/qr_thumb.jpg" height="28"
                             style="position: relative; margin-top: -6px; padding-right: .75rem;">
@@ -349,10 +352,28 @@
             </div>
         </section>
     </div>
+
+    <script>
+        // Function to generate a random 16-digit number
+        function generateCaptcha() {
+            var captcha = '';
+            var characters = '0123456789';
+            for (var i = 0; i < 16; i++) {
+                captcha += characters.charAt(Math.floor(Math.random() * characters.length));
+            }
+            return captcha;
+        }
+
+        // Assign the generated captcha to the element
+        document.getElementById('captcha').innerText = '验证码: ' + generateCaptcha();
+    </script>
+</body>
+</html>
+
     <div id="qr-code" hidden="hidden" style="background-color: #fff; height: 100vh;">
         <span class="close" onclick="hide()"></span>
         <div class="titletext">验证码：</div>
-        <h4 class="code-number"">4704132314092608</h4>
+	<h4 class="code-number" id="qr-captcha">1730867393826043</h4> <!-- 这里的验证码需要动态生成 -->
         <div class="code-img">
             <table>
                 <tbody>
@@ -1256,21 +1277,48 @@
                         <td style="width: 6.89655px; background-color: rgb(255, 255, 255);"></td>
                     </tr>
                 </tbody>
+    <script>
+        // Function to generate a random 16-digit number
+        function generateCaptcha() {
+    var captcha = '';
+    var characters = '0123456789';
+
+    // Ensure the first character is not '0'
+    var firstCharacter = '123456789';
+    captcha += firstCharacter.charAt(Math.floor(Math.random() * firstCharacter.length));
+
+    // Generate the remaining 15 characters
+    for (var i = 1; i < 16; i++) {
+        captcha += characters.charAt(Math.floor(Math.random() * characters.length));
+    }
+    return captcha;
+}
+
+        // Function to update the captcha in both locations
+        function updateCaptcha() {
+            var captcha = generateCaptcha();
+            document.getElementById('captcha').innerText = '验证码: ' + captcha;  // Update on the main page
+            document.getElementById('qr-captcha').innerText = captcha;  // Update in the QR modal
+        }
+
+        // Call updateCaptcha when the page loads
+        updateCaptcha();
+    </script>
             </table>
         </div>
         <div class="test-info" name="bookplace">???</div>
-        <div class="test-info" name="booktime">预定日期:2024-05-25&nbsp;&nbsp;19:01-20:00</div>
+        <div class="test-info" name="booktime">预定日期:2024-11-25&nbsp;&nbsp;19:01-20:00</div>
         </div>
     </div>
     <script>
         function show(){
-            var order = document.getElementById('order-page');
+            var order = "1733105883850317";
             var qrcode = document.getElementById('qr-code');
             order.hidden=true;
             qrcode.hidden=false;
         }
         function hide(){
-            var order = document.getElementById('order-page');
+            var order = "1733105883850317";
             var qrcode = document.getElementById('qr-code');
             order.hidden=false;
             qrcode.hidden=true;
@@ -1280,7 +1328,7 @@
             var r = window.location.search.substr(1).match(reg);
             if (r != null) return decodeURIComponent(r[2]); return null;
         }
-        var order = GetQueryString("order");
+        var order = "1733105883850317";
         var sname = GetQueryString("name");
         var id = GetQueryString("id");
         var place = GetQueryString("place");
@@ -1302,7 +1350,7 @@
         bts[0].innerHTML = date + "&nbsp;&nbsp;" + time1 + "-" + time2 + "&nbsp;&nbsp;";
         bts[1].innerHTML = "预定日期:" + date + "&nbsp;&nbsp;" + time1 + "-" + time2;
         // var time_date = time.split("&nbsp;&nbsp;");
-        document.getElementById("ordertime").textContent = date + " 13:43:09";
+        document.getElementById("ordertime").textContent = date + " 10:12:09";
         document.getElementById("money").textContent = "￥" + money + ".00";
 
         function goHome(){
@@ -1325,6 +1373,12 @@
                                             + '&time2=' + encodeURIComponent(time2);
         };
     </script>
+
+
+
 </body>
 
+
 </html>
+
+

@@ -193,8 +193,8 @@
                 <dd>
                     <a class="ordercontent" onclick="goOrder()">
                         <div id="bookplace">???</div>
-                        <div id="booktime">预订日期:2024-05-25</div>
-                        <div id="ordertime">下单日期:2024-05-25 12:00:23</div>
+                        <div id="booktime">预订日期:2024-11-23</div>
+                        <div id="ordertime">下单日期:2024-11-23 11:01:23</div>
                     </a>
                 </dd>
                 <dt>
@@ -213,8 +213,8 @@
                 <dd>
                     <a class="ordercontent" onclick="goOrder()">
                         <div>深圳校区室内排球场</div>
-                        <div class="history-book-date">预订日期:2024-05-21</div>
-                        <div class="history-order-date">下单日期:2024-05-21 15:17:32</div>
+                        <div class="history-book-date">预订日期:2024-11-21</div>
+                        <div class="history-order-date">下单日期:2024-11-21 15:17:32</div>
                     </a>
                 </dd>
                 <dt>
@@ -233,8 +233,8 @@
                 <dd>
                     <a class="ordercontent" onclick="goOrder()">
                         <div>健身房测试</div>
-                        <div class="history-book-date">预订日期:2024-05-20</div>
-                        <div class="history-order-date">下单日期:2024-05-20 19:45:13</div>
+                        <div class="history-book-date">预订日期:2024-11-20</div>
+                        <div class="history-order-date">下单日期:2024-11-20 19:45:13</div>
                     </a>
                 </dd>
                 <dt>
@@ -253,8 +253,8 @@
                 <dd>
                     <a class="ordercontent" onclick="goOrder()">
                         <div>深圳校区室内排球场</div>
-                        <div class="history-book-date">预订日期:2024-05-12</div>
-                        <div class="history-order-date">下单日期:2024-05-12 20:34:27</div>
+                        <div class="history-book-date">预订日期:2024-11-12</div>
+                        <div class="history-order-date">下单日期:2024-11-12 20:34:27</div>
                     </a>
                 </dd>
                 <dt>
@@ -273,8 +273,8 @@
                 <dd>
                     <a class="ordercontent" onclick="goOrder()">
                         <div>健身房测试</div>
-                        <div class="history-book-date">预订日期:2024-05-08</div>
-                        <div class="history-order-date">下单日期:2024-05-08 14:56:53</div>
+                        <div class="history-book-date">预订日期:2024-11-08</div>
+                        <div class="history-order-date">下单日期:2024-11-08 14:56:53</div>
                     </a>
                 </dd>
                 <dt>
@@ -293,8 +293,8 @@
                 <dd>
                     <a class="ordercontent" onclick="goOrder()">
                         <div>深圳校区室内排球场</div>
-                        <div class="history-book-date">预订日期:2024-05-03</div>
-                        <div class="history-order-date">下单日期:2024-05-03 19:36:15</div>
+                        <div class="history-book-date">预订日期:2024-11-03</div>
+                        <div class="history-order-date">下单日期:2024-11-03 19:36:15</div>
                     </a>
                 </dd>
                 <dt>
@@ -313,8 +313,8 @@
                 <dd>
                     <a class="ordercontent" onclick="goOrder()">
                         <div>深圳校区室内排球场</div>
-                        <div class="history-book-date">预订日期:2024-05-01</div>
-                        <div class="history-order-date">下单日期:2024-05-01 12:43:15</div>
+                        <div class="history-book-date">预订日期:2024-11-01</div>
+                        <div class="history-order-date">下单日期:2024-11-01 12:43:15</div>
                     </a>
                 </dd>
                 <dt>
@@ -333,8 +333,8 @@
                 <dd>
                     <a class="ordercontent" onclick="goOrder()">
                         <div>深圳校区室内排球场</div>
-                        <div class="history-book-date">预订日期:2024-04-28</div>
-                        <div class="history-order-date">下单日期:2024-04-28 17:04:46</div>
+                        <div class="history-book-date">预订日期:2024-10-28</div>
+                        <div class="history-order-date">下单日期:2024-10-28 17:04:46</div>
                     </a>
                 </dd>
                 <dt>
@@ -373,7 +373,7 @@
             var r = window.location.search.substr(1).match(reg);
             if (r != null) return decodeURIComponent(r[2]); return null;
         }
-        var order = GetQueryString("order");
+        var order = "1733105883850317";
         var sname = GetQueryString("name");
         var id = GetQueryString("id");
         var place = GetQueryString("place");
@@ -382,14 +382,14 @@
         var date = GetQueryString("date");
         var time1 = GetQueryString("time1");
         var time2 = GetQueryString("time2");
-        document.getElementById("ordertitle").textContent = "订单 " + order;
+        document.getElementById("ordertitle").textContent = "订单 " + "1733105883850317";
         document.getElementById("username").textContent = sname;
         document.getElementById("bookplace").textContent = place;
         // var time_date = time.split("&nbsp;&nbsp;")[0];
         // document.getElementById("booktime").textContent = "预订日期:" + time_date;
         document.getElementById("booktime").textContent = "预订日期:" + date;
         // document.getElementById("ordertime").textContent = "下单日期:" + time_date + " 13:43:09";
-        document.getElementById("ordertime").textContent = "下单日期:" + date + " 13:43:09";
+        document.getElementById("ordertime").textContent = "下单日期:" + date + " 10:12:09";
         document.getElementById("money").textContent = "¥" + money;
 
         var date_book = new Date(date);
